@@ -1,0 +1,7 @@
+.toggle-list-item {
+    cursor: pointer;
+    list-style-type: none;
+}
+.hidden {
+    display: none;
+}
