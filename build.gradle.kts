@@ -36,9 +36,6 @@ dependencies {
     // https://mvnrepository.com/artifact/org.webjars.npm/bootstrap-icons
     implementation("org.webjars.npm:bootstrap-icons:1.10.3")
 
-    // react
-    implementation("org.jetbrains.kotlin-wrappers:kotlin-react:VERSION")
-
 
 
 
