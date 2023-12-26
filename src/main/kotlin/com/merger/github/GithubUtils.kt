@@ -88,7 +88,6 @@ fun parseWorkflowRuns(jsonResponse: String): WorkflowRunsResponse {
 }
 
 fun getRunJobs(jobsUrl: String, authToken: String = ""): String {
-
     val client = OkHttpClient()
 
     val request = Request.Builder()

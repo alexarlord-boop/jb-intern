@@ -9,13 +9,16 @@ import io.ktor.server.plugins.statuspages.*
 import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
+import kotlinx.coroutines.launch
 import kotlinx.css.html
 import kotlinx.css.script
 import kotlinx.html.*
+import kotlinx.html.dom.document
 import kotlinx.html.stream.appendHTML
 import kotlinx.html.stream.createHTML
 import java.text.SimpleDateFormat
 import java.util.*
+
 
 fun Application.configureRouting() {
     install(StatusPages) {
@@ -311,12 +314,50 @@ fun Application.configureRouting() {
                                 ) { +"${repositoryOwner}/${repositoryName}" }
                             }
                         }
+
+
+                        // Sort Options Start
+//                        div {
+//                            p (classes = "d-inline"){+"sort by: "}
+//                            div(classes = "btn-group d-inline") {
+//                                attributes["role"] = "group"
+//
+//
+//                                input(type = InputType.radio, classes = "btn-check", name = "btnradio") {
+//                                    attributes["id"] = "btnradio1"
+//                                    attributes["autocomplete"] = "off"
+//                                    attributes["checked"] = "true"
+//                                }
+//                                label(classes = "btn btn-sm btn-outline-primary") {
+//                                    attributes["for"] = "btnradio1"
+//                                    +"Name"
+//                                }
+//
+//
+//
+//                                input(type = InputType.radio, classes = "btn-check", name = "btnradio") {
+//                                    attributes["id"] = "btnradio2"
+//                                    attributes["autocomplete"] = "off"
+//                                }
+//                                label(classes = "btn btn-sm btn-outline-primary") {
+//                                    attributes["for"] = "btnradio2"
+//                                    +"Status"
+//                                }
+//
+//
+//                            }
+//                        }
+                        // Sort Options End
+
+
                         div(classes = "accordion") {
                             id = "commitAccordion"
 
                             // Group runs by name
                             val runsByName =
-                                workflowRuns.groupBy { it.name }.toList().sortedByDescending { it.second.size }
+//                                workflowRuns.groupBy { it.name }.toList().sortedByDescending { it.second.size }
+                                workflowRuns.groupBy { it.name }.toSortedMap(compareBy { it.lowercase() })
+
 
                             div(classes = "row") {
                                 // Iterate through grouped commits and render HTML
@@ -364,15 +405,16 @@ fun Application.configureRouting() {
                                                         div(classes = "accordion-body") {
                                                             div(classes = "fs-6 ") {
 
-                                                                label {
-                                                                    a(
-                                                                        href = run.logs_url,
-                                                                        classes = "d-inline btn btn-md btn-dark"
-                                                                    ) { +"Logs" }
-                                                                    p(classes = "d-inline") { +"-- Assume a user has admin access to the repo - workflow logs preview will be available" }
-                                                                }
-                                                                br()
-                                                                br()
+//                                                                label {
+//                                                                    a(
+//                                                                        href = run.logs_url,
+//                                                                        classes = "d-inline btn btn-md btn-dark"
+//                                                                    ) { +"Logs" }
+//                                                                    p(classes = "d-inline") { +"-- Assume a user has admin access to the repo - workflow logs preview will be available" }
+//                                                                }
+//                                                                br()
+
+
 //                                                                label {
 //                                                                    a(
 //                                                                        href = run.jobs_url,
@@ -383,25 +425,32 @@ fun Application.configureRouting() {
 
                                                                 // Add a unique ID for the modal
                                                                 val modalId = "jobsModal${workflowRuns.indexOf(run)}"
+                                                                val jobsBtnId = "jobsBtn${workflowRuns.indexOf(run)}"
 
-// Inside your label element
+
+
                                                                 button(
                                                                     type = ButtonType.button,
                                                                     classes = "btn btn-md btn-dark"
+
                                                                 ) {
+                                                                    attributes["id"] = "#$jobsBtnId"
                                                                     attributes["data-bs-toggle"] = "modal"
                                                                     attributes["data-bs-target"] = "#$modalId"
                                                                     +"Jobs"
                                                                 }
 
-                                                                p(classes = "d-inline") { +"-- Assume jobs logs preview is available" }
+                                                                p(classes = "d-inline") { +"-- Check jobs status, comprehensive info." }
 
 
+                                                                // JOBS MODAL START
                                                                 div(classes = "modal fade") {
                                                                     id = modalId  // Set the modal ID
                                                                     tabIndex = "-1"
                                                                     role = "dialog"
                                                                     attributes["ariaHidden"] = "true"
+                                                                    attributes["jobsUrl"] = run.jobs_url
+                                                                    attributes["authToken"] = authToken
                                                                     //attributes["on-bs-show"] = "fetchDataAndPopulateModalBody('$modalId')"
 
                                                                     div(classes = "modal-dialog modal-lg") {
@@ -409,7 +458,7 @@ fun Application.configureRouting() {
                                                                         div(classes = "modal-content") {
                                                                             // Your modal content goes here
                                                                             div(classes = "modal-header") {
-                                                                                h5(classes = "modal-title") { +"Jobs Modal" }
+                                                                                h5(classes = "modal-title") { +"${run.name} Jobs" }
                                                                                 button(
                                                                                     type = ButtonType.button,
                                                                                     classes = "btn-close"
@@ -422,7 +471,7 @@ fun Application.configureRouting() {
                                                                             }
                                                                             div(classes = "modal-body") {
                                                                                 // Content for the modal body
-                                                                                p { +"This is where your jobs logs preview goes." }
+
                                                                             }
                                                                             div(classes = "modal-footer") {
                                                                                 // Footer buttons or additional content
@@ -439,6 +488,7 @@ fun Application.configureRouting() {
                                                                         }
                                                                     }
                                                                 }
+                                                                // JOBS MODAL END
 
 
                                                             }
@@ -451,6 +501,7 @@ fun Application.configureRouting() {
                                 }
                             }
                         }
+
 
 
 
@@ -491,5 +542,7 @@ fun Application.configureRouting() {
             call.respondText(text, type)
 
         }
+
+
     }
 }
