@@ -58,6 +58,18 @@ fun Application.configureRouting() {
                 }
 
                 body(classes = "container my-2") {
+                    nav {
+                        ol(classes = "breadcrumb") {
+                            li(classes = "breadcrumb-item fw-bold") {
+                                attributes["ariaCurrent"] = "page"
+                                +"Home"
+                            }
+                            li(classes = "breadcrumb-item active") {
+                                +""
+                            }
+                        }
+                    }
+
                     h1 {
                         +"Merge Queue for Kotlin Project"
                     }
@@ -99,7 +111,7 @@ fun Application.configureRouting() {
 
                             // Button for fetching workflow logs
                             submitInput(classes = "btn btn-primary btn-lg m-5") {
-                                value = "Get workflow logs"
+                                value = "Get workflows"
                                 // Set the action type value for the second button
                                 attributes["onclick"] =
                                     "document.getElementsByName('actionType')[0].value='getWorkflowLogs';"
@@ -247,7 +259,6 @@ fun Application.configureRouting() {
         // COMMITS FETCH END
 
 
-
         get("/github-repo-workflow/{owner}/{name}") {
             val repositoryOwner = call.parameters["owner"] ?: throw IllegalStateException("Owner parameter is missing.")
             val repositoryName = call.parameters["name"] ?: throw IllegalStateException("Name parameter is missing.")
@@ -274,15 +285,32 @@ fun Application.configureRouting() {
                     }
 
                     body(classes = "container my-2") {
-                        div (classes = "d-flex justify-content-between") {
+
+                        nav {
+                            ol(classes = "breadcrumb") {
+                                li(classes = "breadcrumb-item active") {
+                                    a(href = "/", classes = "text-secondary") { +"Home" }
+                                }
+                                li(classes = "breadcrumb-item fw-bold") {
+                                    attributes["ariaCurrent"] = "page"
+                                    +"Workflows"
+                                }
+                            }
+                        }
+
+
+                        div(classes = "d-flex justify-content-between") {
                             h1(classes = "d-inline") {
-                                +"Workflow logs"
+                                +"Workflows"
                             }
-                            div (classes = "d-inline fs-5") {
-                                span (classes = "") {+"repo: "}
-                                a(href = "https://github.com/${repositoryOwner}/${repositoryName}", classes = "text-primary d-inline"){+"${repositoryOwner}/${repositoryName}"}
+                            div(classes = "d-inline fs-5") {
+                                span(classes = "") { +"repo: " }
+                                a(
+                                    href = "https://github.com/${repositoryOwner}/${repositoryName}",
+                                    classes = "text-primary d-inline"
+                                ) { +"${repositoryOwner}/${repositoryName}" }
                             }
-                            }
+                        }
                         div(classes = "accordion") {
                             id = "commitAccordion"
 
@@ -382,8 +410,12 @@ fun Application.configureRouting() {
                                                                             // Your modal content goes here
                                                                             div(classes = "modal-header") {
                                                                                 h5(classes = "modal-title") { +"Jobs Modal" }
-                                                                                button(type = ButtonType.button, classes = "btn-close") {
-                                                                                    attributes["data-bs-dismiss"] = "modal"
+                                                                                button(
+                                                                                    type = ButtonType.button,
+                                                                                    classes = "btn-close"
+                                                                                ) {
+                                                                                    attributes["data-bs-dismiss"] =
+                                                                                        "modal"
                                                                                     attributes["ariaLabel"] = "Close"
                                                                                     // Close button for the modal
                                                                                 }
@@ -394,9 +426,14 @@ fun Application.configureRouting() {
                                                                             }
                                                                             div(classes = "modal-footer") {
                                                                                 // Footer buttons or additional content
-                                                                                button(type = ButtonType.button, classes = "btn btn-secondary", ) {
-                                                                                    attributes["data-bs-dismiss"] = "modal"
-                                                                                    +"Close" }
+                                                                                button(
+                                                                                    type = ButtonType.button,
+                                                                                    classes = "btn btn-secondary",
+                                                                                ) {
+                                                                                    attributes["data-bs-dismiss"] =
+                                                                                        "modal"
+                                                                                    +"Close"
+                                                                                }
                                                                                 // Add more buttons if needed
                                                                             }
                                                                         }
@@ -417,7 +454,7 @@ fun Application.configureRouting() {
 
 
 
-                        script { src = "https://code.jquery.com/jquery-3.6.0.min.js"}
+                        script { src = "https://code.jquery.com/jquery-3.6.0.min.js" }
                         script { src = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" }
                         script { src = "/content/functions.js" }
                         script {
