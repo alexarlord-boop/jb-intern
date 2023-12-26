@@ -9,7 +9,6 @@ import okhttp3.Response
 import java.text.SimpleDateFormat
 import java.util.*
 
-const val authToken = "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"
 
 val customDateFormat = SimpleDateFormat("MMM dd, yyyy", Locale.ENGLISH)
 val customPreciseDateFormat = SimpleDateFormat("MMM dd, yyyy 'at' HH:mm:ss", Locale.ENGLISH)
@@ -77,7 +76,7 @@ fun getWorkflowRuns(repositoryOwner: String, repositoryName: String, authToken: 
 
     } else {
         // Handle error
-        throw RuntimeException("Failed to fetch Git log. HTTP status code: ${response.code}")
+        throw RuntimeException("Failed to fetch Workflow log. HTTP status code: ${response.code}. \n\n Info: ${response}")
     }
 }
 
