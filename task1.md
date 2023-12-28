@@ -74,8 +74,11 @@ Implement a task queue for asynchronous processing using a distributed system li
 
 **Logging Module:** Implement a logging module that collects and makes logs accessible from various components in a centralized location
 
-**Quality Gates Module:**
+**Resolver Module:**
 Create a customizable module for quality gates that enforces checks and tests before allowing code pushes to proceed.
+
+**Configuration module**
+Enhance flexibility for customization, metadata, setup configuration etc.
 
 **User Interface:**
 GUI to provide an intuitive centralized configuration interface.
@@ -124,7 +127,7 @@ The result of the CI quality gates check is communicated back to relevant stakeh
 **Proxy solution**
 ![withproxy.png](images%2Fwithproxy.png)
 
-**Many to many**
+**Several repositories. Many to many**
 ![manyrepos.png](images%2Fmanyrepos.png)
 
 **Proxy layout**
@@ -134,6 +137,8 @@ The result of the CI quality gates check is communicated back to relevant stakeh
 ![details.png](images%2Fdetails.png)
 
 **Resolver (async processing of pushes & checks)**
+
+GQ checker revise results of independent async workers.
 ![resolve.png](images%2Fresolve.png)
 
 
