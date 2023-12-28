@@ -104,25 +104,12 @@ fun Application.configureRouting() {
 
                             br()
 
-                            // Button for fetching repo commits
-//                            submitInput(classes = "btn btn-dark btn-lg m-5") {
-//                                value = "Get repo commits"
-//                                // Set the action type value for the first button
-//                                attributes["onclick"] =
-//                                    "document.getElementsByName('actionType')[0].value='getCommits';"
-//                            }
-
                             // Button for fetching workflow logs
                             submitInput(classes = "btn btn-primary btn-lg m-5") {
                                 value = "Get workflows"
                                 // Set the action type value for the second button
                                 attributes["onclick"] =
                                     "document.getElementsByName('actionType')[0].value='getWorkflowLogs';"
-
-//                                attributes["data-bs-toggle"]="tooltip"
-//                                attributes["data-bs-placement"]="bottom"
-//                                attributes["title"]="Tooltip on bottom"
-
 
                             }
                         }
@@ -163,103 +150,6 @@ fun Application.configureRouting() {
 
         }
 
-
-        // COMMITS FETCH START
-//        get("/github-repo-commits/{owner}/{name}") {
-//            val repositoryOwner = call.parameters["owner"] ?: throw IllegalStateException("Owner parameter is missing.")
-//            val repositoryName = call.parameters["name"] ?: throw IllegalStateException("Name parameter is missing.")
-//
-//
-//            val commits = getCommits(repositoryOwner, repositoryName, authToken)
-//
-//            val text = createHTML().html {
-//                head {
-//                    link(rel = "stylesheet", href = "/assets/bootstrap/bootstrap.css")
-//                    title("Git Repository Log")
-//                    style {
-//                        +"""
-//                        body {
-//                            font-family: 'JetBrains Sans', sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Oxygen', 'Ubuntu', 'Cantarell', 'Droid Sans', 'Helvetica Neue', 'Arial', sans-serif;
-//                        }
-//                    """.trimIndent()
-//                    }
-//                }
-//
-//                body(classes = "container my-2") {
-//                    h1 {
-//                        +"Git Repository Log: ${repositoryOwner}/${repositoryName}"
-//                    }
-//
-//
-//
-//                    div(classes = "accordion") {
-//                        id = "commitAccordion"
-//
-//                        // Group commits by date
-//                        val commitsByDate = commits.groupBy { customDateFormat.format(it.commit.author.date) }
-//
-//                        // Iterate through grouped commits and render HTML
-//                        commitsByDate.forEach { (date, commitsForDate) ->
-//                            div(classes = "date-section fs-5 mt-3 ") {
-//                                span(classes = "ms-3 ") {
-//                                    // Format the date as needed
-//                                    +date
-//                                }
-//
-//                                commitsForDate.forEach { commit ->
-//                                    div(classes = "accordion-item border-1 border-primary") {
-//                                        h2(classes = "accordion-header") {
-//                                            id = "heading${commits.indexOf(commit)}"
-//                                            button(classes = "accordion-button bg-light") {
-//                                                attributes["data-bs-toggle"] = "collapse"
-//                                                attributes["data-bs-target"] = "#collapse${commits.indexOf(commit)}"
-//                                                attributes["aria-expanded"] = "false"
-//                                                attributes["aria-controls"] = "collapse${commits.indexOf(commit)}"
-//                                                +commit.commit.message
-//                                            }
-//                                        }
-//                                        div(classes = "accordion-collapse collapse") {
-//                                            id = "collapse${commits.indexOf(commit)}"
-//                                            attributes["aria-labelledby"] = "heading${commits.indexOf(commit)}"
-//                                            attributes["data-bs-parent"] = "#commitAccordion"
-//                                            div(classes = "accordion-body") {
-//                                                p(classes = "fs-6") {
-//                                                    +commit.toString()
-//                                                }
-//                                            }
-//                                        }
-//                                    }
-//                                }
-//                            }
-//                        }
-//                    }
-//
-//
-//
-//                    script {
-//                        src = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-//
-//                        unsafe {
-//                            raw(
-//                                """
-//                        function toggleVisibility (index) {
-//                            var element = document.getElementById('commitMessage' + index);
-//                            element.classList.toggle('hidden');
-//                        }
-//                        """.trimIndent()
-//                            )
-//                        }
-//                    }
-//                }
-//
-//
-//            }
-//
-//            val type = ContentType.Text.Html
-//            call.respondText(text, type)
-//
-//        }
-        // COMMITS FETCH END
 
 
         get("/github-repo-workflow/{owner}/{name}") {
@@ -315,41 +205,6 @@ fun Application.configureRouting() {
                             }
                         }
 
-
-                        // Sort Options Start
-//                        div {
-//                            p (classes = "d-inline"){+"sort by: "}
-//                            div(classes = "btn-group d-inline") {
-//                                attributes["role"] = "group"
-//
-//
-//                                input(type = InputType.radio, classes = "btn-check", name = "btnradio") {
-//                                    attributes["id"] = "btnradio1"
-//                                    attributes["autocomplete"] = "off"
-//                                    attributes["checked"] = "true"
-//                                }
-//                                label(classes = "btn btn-sm btn-outline-primary") {
-//                                    attributes["for"] = "btnradio1"
-//                                    +"Name"
-//                                }
-//
-//
-//
-//                                input(type = InputType.radio, classes = "btn-check", name = "btnradio") {
-//                                    attributes["id"] = "btnradio2"
-//                                    attributes["autocomplete"] = "off"
-//                                }
-//                                label(classes = "btn btn-sm btn-outline-primary") {
-//                                    attributes["for"] = "btnradio2"
-//                                    +"Status"
-//                                }
-//
-//
-//                            }
-//                        }
-                        // Sort Options End
-
-
                         div(classes = "accordion") {
                             id = "commitAccordion"
 
@@ -404,24 +259,6 @@ fun Application.configureRouting() {
                                                         attributes["data-bs-parent"] = "#commitAccordion"
                                                         div(classes = "accordion-body") {
                                                             div(classes = "fs-6 ") {
-
-//                                                                label {
-//                                                                    a(
-//                                                                        href = run.logs_url,
-//                                                                        classes = "d-inline btn btn-md btn-dark"
-//                                                                    ) { +"Logs" }
-//                                                                    p(classes = "d-inline") { +"-- Assume a user has admin access to the repo - workflow logs preview will be available" }
-//                                                                }
-//                                                                br()
-
-
-//                                                                label {
-//                                                                    a(
-//                                                                        href = run.jobs_url,
-//                                                                        classes = " btn btn-md btn-dark"
-//                                                                    ) { +"Jobs" }
-//                                                                    p(classes = "d-inline") { +"-- Assume jobs logs preview is available" }
-//                                                                }
 
                                                                 // Add a unique ID for the modal
                                                                 val modalId = "jobsModal${workflowRuns.indexOf(run)}"
@@ -508,28 +345,7 @@ fun Application.configureRouting() {
                         script { src = "https://code.jquery.com/jquery-3.6.0.min.js" }
                         script { src = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" }
                         script { src = "/content/functions.js" }
-                        script {
-                            unsafe {
-                                raw(
-                                    """
-                                    function toggleVisibility (index) {
-                                        var element = document.getElementById('commitMessage' + index);
-                                        element.classList.toggle('hidden');
-                                    }
-                                    
-                                 
-                                    
-                                    
-                                    function fetchDataAndPopulateModalBody(modalId) {
-                                        // Make your asynchronous request here (using fetch, XMLHttpRequest, etc.)
-                                        // Example using fetch:
-                                        
-                                        console.log("bebraaa");
-                                    }
-                                    """.trimIndent()
-                                )
-                            }
-                        }
+
                     }
 
 
