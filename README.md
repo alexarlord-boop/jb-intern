@@ -36,3 +36,14 @@ Pressing on "Jobs" button, user fetch a workflow run logs with jobs info.
 Each job is represented as a tabpane with step list.
 I decided to mark a job conclusion right on the tab link for better UX.
 ![joberror.gif](videos%2Fjoberror.gif)
+
+<details><summary>Screenshots</summary>
+
+![main.png](images%2Fpresentation%2Fmain.png)
+
+![workflow.png](images%2Fpresentation%2Fworkflow.png)
+
+![jobs.png](images%2Fpresentation%2Fjobs.png)
+
+![errorjob.png](images%2Fpresentation%2Ferrorjob.png)
+</details>
