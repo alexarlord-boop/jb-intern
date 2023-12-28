@@ -134,8 +134,7 @@ The result of the CI quality gates check is communicated back to relevant stakeh
 ![noproxy.png](images%2Fdiagrams%2Fnoproxy.png)
 
 **Proxy solution**
-![proxy.png](images%2Fdiagrams%2Fproxy.png)
-
+![withproxy.png](images%2Fdiagrams%2Fwithproxy.png)
 **Several repositories. Many to many**
 ![manyrepos.png](images%2Fdiagrams%2Fmanyrepos.png)
 
