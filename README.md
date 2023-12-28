@@ -15,6 +15,15 @@ Develop a client-server application that displays a Git repository's log, retrie
 
 ## Solution
 
+**Tech stack:**
+1. Server: Ktor, Kotlin
+2. Frontend: HTML DSL, Bootstrap, JS 
+3. GitHub rest api for data retrieval
+4. Built with Gradle
+
+I decided to opt for this stack due to assumed steepness of learning curve for Kotlin multiplatform.
+I have some experience in React, and I plan to improve this project with Kotlin wrapper for React in the future.
+
 **Main screen**
 
 The 1st screen has a text input. User can paste any public repository URL hosted on GitHub and fetch logs specifically for this repo.
