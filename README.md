@@ -1,6 +1,6 @@
 # JetBrains Internship 2024
 ## Merge Queue for Kotlin Project
-### Test Task 2: Workflow logs checker application
+### Test Task 2: Git logs checker application
  [test task 1](https://github.com/alexarlord-boop/jb-intern/blob/main/task1.md)
 
 ### Description
