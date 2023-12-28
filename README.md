@@ -1,3 +1,4 @@
+![jbcanvas-half.svg](images%2Fjbcanvas-half.svg)
 # JetBrains Internship 2024
 ## Merge Queue for Kotlin Project
 ### Test Task 2: Git logs checker application
