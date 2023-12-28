@@ -1,7 +1,8 @@
+![jbcanvas-half.svg](images%2Fjbcanvas-half.svg)
 # JetBrains Internship 2024
 ## Merge Queue for Kotlin Project
 ### Test Task 1: Improving Kotlin Continuous Integration
- [test task 2](https://github.com/alexarlord-boop/jb-intern/blob/main/README.md)
+[test task 2](https://github.com/alexarlord-boop/jb-intern/blob/main/README.md)
 
 1. [Intro](#intro)
 2. [Solution Approach](#solution-approach-initial-steps)
