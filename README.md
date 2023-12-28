@@ -7,10 +7,16 @@
 Develop a client-server application that displays a Git repository's log, retrieved on the server, in a web browser. If required, make use of assumptions to simplify the problem. Any framework and language can be used for the task, but staying in the JVM stack is preferable.
 
 ### Assumptions
-* GitHub REST API as a source
+* GitHub REST API as a log source
 * Only public repos assessed
 * Workflow runs (github actions) as a log content
 * User makes authorised requests to the API
 * We have user authN, authZ implemented and have access to github api token for authorized request.
 
-### Solution
+## Solution
+
+**Main screen**
+
+**Workflows**
+
+**Workflow jobs**
