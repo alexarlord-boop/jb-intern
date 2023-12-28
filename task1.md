@@ -125,24 +125,24 @@ The result of the CI quality gates check is communicated back to relevant stakeh
 <details><summary>Diagrams (expand)</summary>
 
 **Current situation**
-![noproxy.png](images%2Fnoproxy.png)
+![noproxy.png](images%2Fdiagrams%2Fnoproxy.png)
 
 **Proxy solution**
-![withproxy.png](images%2Fwithproxy.png)
+![proxy.png](images%2Fdiagrams%2Fproxy.png)
 
 **Several repositories. Many to many**
-![manyrepos.png](images%2Fmanyrepos.png)
+![manyrepos.png](images%2Fdiagrams%2Fmanyrepos.png)
 
 **Proxy layout**
-![proxy.png](images%2Fproxy.png)
+![proxy.png](images%2Fdiagrams%2Fproxy.png)
 
 **Proxy layout in details**
-![details.png](images%2Fdetails.png)
+![details.png](images%2Fdiagrams%2Fdetails.png)
 
 **Resolver (async processing of pushes & checks)**
 
 GQ checker revise results of independent async workers.
-![resolve.png](images%2Fresolve.png)
+![resolve.png](images%2Fdiagrams%2Fresolve.png)
 
 
 
