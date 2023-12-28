@@ -1,4 +1,7 @@
-# Improving Kotlin Continuous Integration
+# JetBrains Internship 2024
+## Merge Queue for Kotlin Project
+### Test Task 1: Improving Kotlin Continuous Integration
+ [test task 2](https://github.com/alexarlord-boop/jb-intern/blob/main/task1.md)
 
 **Goal:** enhance the reliability and productivity of the Kotlin team's CI process.
 
