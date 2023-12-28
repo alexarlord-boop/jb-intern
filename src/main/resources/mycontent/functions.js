@@ -88,13 +88,28 @@ function visualizeJobs(jsonData) {
            const tabId = `tab-${index}`;
            const contentId = `content-${index}`;
 
-           // Create the tab link
-           const tabLink = document.createElement('a');
-           tabLink.className = 'nav-link';
-           tabLink.setAttribute('id', tabId);
-           tabLink.setAttribute('data-bs-toggle', 'tab');
-           tabLink.setAttribute('href', `#${contentId}`);
-           tabLink.textContent = job.name;
+//           // Create the tab link
+//           const tabLink = document.createElement('a');
+//           tabLink.className = 'nav-link';
+//           tabLink.setAttribute('id', tabId);
+//           tabLink.setAttribute('data-bs-toggle', 'tab');
+//           tabLink.setAttribute('href', `#${contentId}`);
+//           tabLink.textContent = job.name;
+
+            // Create the tab link
+            const tabLink = document.createElement('a');
+            tabLink.className = 'nav-link position-relative'; // Add 'position-relative' class for relative positioning
+            tabLink.setAttribute('id', tabId);
+            tabLink.setAttribute('data-bs-toggle', 'tab');
+            tabLink.setAttribute('href', `#${contentId}`);
+            tabLink.textContent = job.name;
+
+            // Create and append the badge
+            const badge = document.createElement('span');
+            badge.className = "badge rounded-circle position-absolute top-0 end-0";
+            badge.innerHTML = getConclusionIcon(job.conclusion);
+
+            tabLink.appendChild(badge);
 
            // Create the tab pane for the content
            const tabPane = document.createElement('div');
@@ -139,6 +154,6 @@ function visualizeJobs(jsonData) {
        return container;
     }
 
- function getConclusionIcon(conclusion) {
-        return conclusion === 'success' ? '<i class="bi bi-check-circle-fill text-success"></i>' : '<i class="bi bi-x-circle-fill text-danger"></i>';
-    }
+function getConclusionIcon(conclusion) {
+    return conclusion === 'success' ? '<i class="bi bi-check-circle-fill text-success"></i>' : '<i class="bi bi-x-circle-fill text-danger"></i>';
+}
