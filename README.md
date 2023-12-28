@@ -17,6 +17,22 @@ Develop a client-server application that displays a Git repository's log, retrie
 
 **Main screen**
 
-**Workflows**
+The 1st screen has a text input. User can paste any public repository URL hosted on GitHub and fetch logs specifically for this repo.
+![main.gif](videos%2Fmain.gif)
+
+**Workflow screen**
+
+The second screen is showing all workflows of the chosen repository, sorted in alphabetical order.
+
+Each workflow item is an accordion object, that can store additional functionality and be available right away, without redirecting.
+![workflows.gif](videos%2Fworkflows.gif)
+
 
 **Workflow jobs**
+
+Pressing on "Jobs" button, user fetch a workflow run logs with jobs info.
+![jobpress.gif](videos%2Fjobpress.gif)
+
+Each job is represented as a tabpane with step list.
+I decided to mark a job conclusion right on the tab link for better UX.
+![joberror.gif](videos%2Fjoberror.gif)

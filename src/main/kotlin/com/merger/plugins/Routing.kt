@@ -279,6 +279,26 @@ fun Application.configureRouting() {
 
                                                                 p(classes = "d-inline") { +"-- Check jobs status, comprehensive info." }
 
+                                                                br()
+                                                                br()
+                                                                button(
+                                                                    type = ButtonType.button,
+                                                                    classes = "btn btn-md btn-dark"
+                                                                ) {
+                                                                    +"Restart"
+                                                                }
+                                                                p(classes = "d-inline") { +"-- Assume this button makes something cool too" }
+
+                                                                br()
+                                                                br()
+                                                                button(
+                                                                    type = ButtonType.button,
+                                                                    classes = "btn btn-md btn-dark"
+                                                                ) {
+                                                                    +"Report"
+                                                                }
+                                                                p(classes = "d-inline") { +"-- Assume this button makes something cool too" }
+
 
                                                                 // JOBS MODAL START
                                                                 div(classes = "modal fade") {
