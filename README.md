@@ -3,10 +3,17 @@
 ### Test Task 2: Git logs checker application
  [test task 1](https://github.com/alexarlord-boop/jb-intern/blob/main/task1.md)
 
-### Description
+
+
+1. [Description](#description)
+2. [Assumptions](#assumptions)
+3. [Solution](#solution)
+
+
+## Description
 Develop a client-server application that displays a Git repository's log, retrieved on the server, in a web browser. If required, make use of assumptions to simplify the problem. Any framework and language can be used for the task, but staying in the JVM stack is preferable.
 
-### Assumptions
+## Assumptions
 * GitHub REST API as a log source
 * Only public repos assessed
 * Workflow runs (github actions) as a log content
