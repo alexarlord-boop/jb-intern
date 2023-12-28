@@ -117,10 +117,25 @@ The result of the CI quality gates check is communicated back to relevant stakeh
 </details>
 
 <details><summary>Diagrams (expand)</summary>
+
+**Current situation**
 ![noproxy.png](images%2Fnoproxy.png)
+
+**Proxy solution**
 ![withproxy.png](images%2Fwithproxy.png)
+
+**Many to many**
 ![manyrepos.png](images%2Fmanyrepos.png)
+
+**Proxy layout**
 ![proxy.png](images%2Fproxy.png)
-![resolver.png](images%2Fresolver.png)
+
+**Proxy layout in details**
 ![details.png](images%2Fdetails.png)
+
+**Resolver (async processing of pushes & checks)**
+![resolve.png](images%2Fresolve.png)
+
+
+
 </details>
