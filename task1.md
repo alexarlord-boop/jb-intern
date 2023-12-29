@@ -8,6 +8,7 @@
 2. [Solution Approach](#solution-approach-initial-steps)
 3. [Design and Architecture](#design-and-architecture)
 4. [Output](#output)
+5. [Why I'm Excited About This Project](#why-im-excited-about-this-project)
 
 ## Intro
 **Goal:** enhance the reliability and productivity of the Kotlin team's CI process.
@@ -150,6 +151,14 @@ The result of the CI quality gates check is communicated back to relevant stakeh
 GQ checker revise results of independent async workers.
 ![resolve.png](images%2Fdiagrams%2Fresolve.png)
 
-
-
 </details>
+
+## Why I'm Excited About This Project
+**Skill Growth:**
+I'll enhance my DevOps skills by implementing practices hands-on, especially with tasks like building a scalable CI queue and contributing to Kotlin's open-source project.
+
+**Advanced Solution Architecture:**
+Engaging in the project's complexities will elevate my understanding of solution architecture.
+
+**Kotlin Passion:**
+Contributing to Kotlin's CI process aligns perfectly with my passion for the language, offering an inspiring opportunity for meaningful impact and community collaboration.
