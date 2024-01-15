@@ -25,6 +25,7 @@ Develop a client-server application that displays a Git repository's log, retrie
 
 I decided to opt for this stack due to assumed steepness of learning curve for Kotlin multiplatform.
 I have some experience in React, and I plan to improve this project with Kotlin wrapper for React in the future.
+[react alternative](https://github.com/alexarlord-boop/kotlin-react-ci-logs/tree/dev?tab=readme-ov-file)
 
 **Main screen**
 
